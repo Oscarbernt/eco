@@ -32,16 +32,17 @@ public class MainActivity extends ActionBarActivity {
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, CategoryActivity.class);
-                startActivity(intent);
+                // Intent intent = new Intent(MainActivity.this, MonitorActivity.class);
+                //startActivity(intent);
+
 
             }
         });
         button3.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-               // Intent intent = new Intent(MainActivity.this, MonitorActivity.class);
-                //startActivity(intent);
+                Intent intent = new Intent(MainActivity.this, CategoryActivity.class);
+                startActivity(intent);
             }
         });
 

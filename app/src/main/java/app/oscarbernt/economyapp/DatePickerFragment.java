@@ -1,6 +1,5 @@
 package app.oscarbernt.economyapp;
 
-
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
