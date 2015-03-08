@@ -1,14 +1,12 @@
 package app.oscarbernt.economyapp;
 
 
-import android.app.DatePickerDialog;
 import android.app.DialogFragment;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.DatePicker;
 
 
 public class PurchaseActivity extends FragmentActivity {
