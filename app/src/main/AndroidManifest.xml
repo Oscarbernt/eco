@@ -28,6 +28,10 @@
             android:name=".PurchaseActivity"
             android:label="@string/title_activity_purchase" >
         </activity>
+        <activity
+            android:name=".MonitorActivity"
+            android:label="@string/title_activity_monitor" >
+        </activity>
     </application>
 
 </manifest>
