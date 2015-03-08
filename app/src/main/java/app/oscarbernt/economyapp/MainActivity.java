@@ -24,7 +24,7 @@ public class MainActivity extends ActionBarActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, CategoryActivity.class);
                 startActivity(intent);
-
+//hg
             }
         });
         button2.setOnClickListener(new View.OnClickListener() {
