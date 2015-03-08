@@ -7,17 +7,61 @@ import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
+
+import java.util.List;
 
 
 public class PurchaseActivity extends FragmentActivity {
+
+    EditText etDesc, etCost;
+    Spinner spCategory;
+    Button btnDate, btnSend;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_purchase);
+        //init
+        etDesc = (EditText) findViewById(R.id.etDesc);
+        etCost = (EditText) findViewById(R.id.etCost);
+        spCategory = (Spinner) findViewById(R.id.spCategory);
+        btnDate = (Button) findViewById(R.id.btnDate);
+        btnSend = (Button) findViewById(R.id.btnSend);
+
+        loadSpinnerData();
 
 
+        btnSend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // if(etDesc && etCost && spCategory && date != null){
+                //}
+            }
+        });
+}
+
+    private void loadSpinnerData() {
+        // database handler
+        DatabaseHelper db = new DatabaseHelper(getApplicationContext());
+        // Spinner Drop down elements
+        List<String> categories = db.getCategories();
+
+        // Creating adapter for spinner
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, categories);
+
+        // Drop down layout style - list view with radio button
+        dataAdapter
+                .setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        // attaching data adapter to spinner
+        spCategory.setAdapter(dataAdapter);
     }
+
 
 
     @Override

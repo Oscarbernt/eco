@@ -23,7 +23,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     //Categories column names
     public static final String COLUMN_NAME = "name";
     public static final String COLUMN_CURRVAL = "currval";
-    public static final String COLUMN_LIMIT = "limit";
+    public static final String COLUMN_LIMIT = "lmt";
 
     //Purchase column names
     public static final String COLUMN_DESC = "desc";
@@ -36,16 +36,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
 
     // Database creation sql statement
-    private static final String DATABASE_CREATE_CATEGORIES = "create table "
-            + TABLE_CATEGORIES + "(" + COLUMN_ID
-            + " integer primary key autoincrement, " + COLUMN_NAME
-            + " text not null, " + COLUMN_CURRVAL + " double, " + COLUMN_LIMIT + " double);";
+    private static final String DATABASE_CREATE_CATEGORIES = "CREATE TABLE "
+            + TABLE_CATEGORIES + " ( " + COLUMN_ID
+            + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COLUMN_NAME
+            + " TEXT NOT NULL, " + COLUMN_CURRVAL + " REAL, " + COLUMN_LIMIT + " REAL )";
 
     private static final String DATABASE_CREATE_PURCHASE = "create table "
             + TABLE_PURCHASE + "(" + COLUMN_ID
             + " integer primary key autoincrement, " + COLUMN_DESC
             + " text not null, " + COLUMN_COST + " double, " + COLUMN_CATEGORY
-            + " text not null" + COLUMN_DATE + " date);";
+            + " text not null, " + COLUMN_DATE + " date);";
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -93,9 +93,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.insert(TABLE_PURCHASE, null, values);
     }
 
-    public List<Category> getCategories(){
+    public List<String> getCategories(){
 
-        List<Category> categories = new ArrayList<Category>();
+        List<String> categories = new ArrayList<String>();
 
         String selectQuery = "SELECT * FROM " + TABLE_CATEGORIES;
         SQLiteDatabase db = this.getReadableDatabase();
@@ -109,7 +109,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 category.setCurrval(c.getDouble(c.getColumnIndex(COLUMN_CURRVAL)));
                 category.setLimit(c.getDouble(c.getColumnIndex(COLUMN_LIMIT)));
 
-                categories.add(category);
+                categories.add(c.getString(1));
             }while(c.moveToNext());
         }
 
