@@ -1,12 +1,14 @@
 package app.oscarbernt.economyapp;
 
 
+import android.app.DatePickerDialog;
 import android.app.DialogFragment;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.DatePicker;
 
 
 public class PurchaseActivity extends FragmentActivity {
@@ -41,10 +43,12 @@ public class PurchaseActivity extends FragmentActivity {
         return super.onOptionsItemSelected(item);
     }
 
+
     public void showDatePickerDialog(View v) {
         DialogFragment newFragment = new DatePickerFragment();
-        newFragment.show(getSupportFragmentManager(), "datePicker");
+        newFragment.show(getFragmentManager(),"datePicker");
     }
+
 
 
 }
