@@ -18,6 +18,8 @@ public class MainActivity extends ActionBarActivity {
 
         //HEj
 
+        // HEJ HEJ
+
         Button button = (Button) findViewById(R.id.button);
         Button button2 = (Button) findViewById(R.id.button2);
         button.setOnClickListener(new View.OnClickListener() {
