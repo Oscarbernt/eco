@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">EconomyApp</string>
+
+    <string name="Hej_ekonomiapp">Hej Ekonomiapp!</string>
+    <string name="Purchase">Purchase</string>
+    <string name="Monitor">Monitor</string>
+    <string name="Categories">Categories</string>
+    <string name="Add_p">Add purchase</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_category">CategoryActivity</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_purchase">PurchaseActivity</string>
+</resources>
