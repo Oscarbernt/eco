@@ -6,6 +6,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.provider.ContactsContract;
 import android.util.Log;
 
 import java.util.ArrayList;
@@ -106,14 +107,22 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             do{
                 Category category = new Category();
                 category.setName(c.getString(c.getColumnIndex(COLUMN_NAME)));
-                category.setCurrval(c.getDouble(c.getColumnIndex(COLUMN_CURRVAL)));
-                category.setLimit(c.getDouble(c.getColumnIndex(COLUMN_LIMIT)));
-
                 categories.add(c.getString(1));
             }while(c.moveToNext());
         }
-
         return categories;
+    }
+
+    public Cursor readCategories() {
+        String[] allColumns = new String[] { DatabaseHelper.COLUMN_NAME,
+                DatabaseHelper.COLUMN_CURRVAL };
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = db.query(DatabaseHelper.TABLE_CATEGORIES, allColumns, null,
+                null, null, null, null);
+        if (c != null) {
+            c.moveToFirst();
+        }
+        return c;
     }
 
     public List<Purchase> getPurchase(){
