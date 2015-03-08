@@ -18,10 +18,11 @@ public class MainActivity extends ActionBarActivity {
 
         //HEj
 
-        Button button = (Button) findViewById(R.id.button);
-        Button button2 = (Button) findViewById(R.id.button2);
-        Button button3 = (Button) findViewById(R.id.button3);
-        button.setOnClickListener(new View.OnClickListener() {
+        Button btnPurchase = (Button) findViewById(R.id.btnPurchase);
+        Button btnMonitor = (Button) findViewById(R.id.btnMonitor);
+        Button btnCategories = (Button) findViewById(R.id.btnCategories);
+
+        btnPurchase.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, PurchaseActivity.class);
@@ -29,16 +30,14 @@ public class MainActivity extends ActionBarActivity {
 
             }
         });
-        button2.setOnClickListener(new View.OnClickListener() {
+        btnMonitor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Intent intent = new Intent(MainActivity.this, MonitorActivity.class);
                 //startActivity(intent);
-
-
             }
         });
-        button3.setOnClickListener(new View.OnClickListener(){
+        btnCategories.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
                 Intent intent = new Intent(MainActivity.this, CategoryActivity.class);
